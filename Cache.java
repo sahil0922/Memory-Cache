@@ -54,4 +54,9 @@ public class Cache {
     public void clear(){
         cache.clear();
     }
+
+    // returns the size of cache
+    public int size(){
+        return cache.size();
+    }
 }
