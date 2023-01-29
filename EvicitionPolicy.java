@@ -9,6 +9,7 @@ import java.lang.*;
  * Inserts: a key-value pair into the cache. If the key already exists, it updates the value.
  * access: to an element from the cache
  * remove: removes the item based on the eviction policy
+ * getRemovedKey: returns the key from the eviction policy to be removed
  * clear: clears the entire cache
  * size : return the current size of cache
  */
@@ -17,6 +18,7 @@ public interface EvicitionPolicy {
     void insert(String key, Object value);
     Object access(String key);
     void remove();
+    String getRemovedKey();
     void clear();
     void size();
 }

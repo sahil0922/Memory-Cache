@@ -53,6 +53,27 @@ public class LRU extends DoublyLinkedList implements EvicitionPolicy {
         return node.value;
     }
 
+    // removes the item form the cache (Least Recently Used one)
+    @Override
+    public void remove(){
+        if(list.size() == 0){
+            System.out.println("The cache is already empty, can't remove anything");
+            return;
+        }
+
+        DoublyNode node = list.removeFirstNode();
+        map.remove(node.key);
+    }
+
+    // returns the Least Recently Used key 
+    @Override
+    public String getKeyToRemove(){
+        if(list.size() == 0){
+            throw new IllegalStateException("can't get key to remove from cache/ cache is empty")
+        }
+        return list.getFirstNode().key;
+    }
+
     // clears the cache
     @Override
     public void clear(){

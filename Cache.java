@@ -21,7 +21,7 @@ public class Cache {
 
     // this helps to set policy at Run-time through an interface 
     public void setPolicy(EvicitionPolicy policy){
-        thils.policy = policy;
+        this.policy = policy;
     }
 
     // insert element into cache with key -> value type
@@ -34,7 +34,7 @@ public class Cache {
     // this is widley used 
     public void remove(){
         String keyToRemove = policy.getKeyToRemove();
-        policy.remove(keyToRemove);
+        policy.remove(); // no need to pass the key as policy itself will remove as per its logic
         cache.remove(keyToRemove);
     }
 

@@ -10,15 +10,15 @@ import java.util.*;
 // this is an class which is used by "Cache class futher to process the information"
 
 public class EvictionPolicyCustom {
-    public static EvicitionPolicy getEvictionPolicy(String policyType){
+    public static EvicitionPolicy getEvictionPolicy(String policyType, int cacheSize){
         if(policyType.equalsIgnoreCase("FIFO")){
-            return new FIFO();
+            return new FIFO(cacheSize);
         }
         else if(policyType.equalsIgnoreCase("LIFO")){
-            return new LIFO();
+            return new LIFO(cacheSize);
         }
         else if(policyType.equalsIgnoreCase("LRU")){
-            return new LRU();
+            return new LRU(cacheSize);
         }
         else{
             // not found / Invalid

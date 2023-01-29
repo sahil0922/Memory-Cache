@@ -12,6 +12,8 @@ public class LIFO implements EvicitionPolicy {
     Map<String, Object> cache; 
     private static final int MAX_CACHE_SIZE_LIMIT; // it a constant that holds the maximum size of the cache.
 
+    private String removedKey;
+
     public LIFO(int size){
         stack = new Stack<>();
         cache = new HashMap<>();
@@ -41,8 +43,13 @@ public class LIFO implements EvicitionPolicy {
     // it removes the oldest item from the cache.
     @Override
     public void remove(){
-        String key = stack.pop();
-        cache.remove(key);
+        removedKey = stack.pop();
+        cache.remove(removedKey);
+    }
+
+    @Override
+    public String getRemovedKey(){
+        return removedKey;
     }
 
     // this method clears the entire cache.

@@ -13,6 +13,8 @@ public class FIFO implements EvicitionPolicy {
 
     private static final int MAX_CACHE_SIZE_LIMIT; // a constant that holds the maximum size of the cache.
 
+    private String removedKey;
+
     public FIFO(int size){
         queue = new LinkedList<>();
         cache = new HashMap<>();
@@ -45,8 +47,13 @@ public class FIFO implements EvicitionPolicy {
     // removes the oldest key-value pair (first one in the queue) from the cache.
     @Override
     public void remove(){
-        String key = queue.poll();
-        cache.remove(key);
+        removedKey = queue.poll();
+        cache.remove(kremovedKey);
+    }
+
+    @Override
+    public String getRemovedKey(){
+        return removedKey;
     }
 
     //clears the queue and the cache.
