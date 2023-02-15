@@ -1,4 +1,4 @@
-# Memory Cache (Backend Intern Assignment of Enterpret)
+# Memory Cache
 
 # Introduction
 This project is a memory cache implementation that utilizes different eviction policies to manage the cache. The cache is implemented using a HashMap to store the key-value pairs, and an eviction policy to manage the eviction of keys from the cache. The eviction policy is determined by the Policy Name passed to the constructor.
